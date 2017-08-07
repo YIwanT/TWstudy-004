@@ -1,27 +1,26 @@
 'use strict';
+function find(object, ch){
+    let array = Object.keys(object) ;
+    for (let item of array){
+        if (item == ch){
+            return true ;
 
-function find (object, ch){
-  
+        }
+    }
+    return false ;
 }
 function grouping_count(collection) {
 
   //在这里写入代码
   let result = {} ;
-
-  for (let item of collection){
-      let obj = find(result, item);
-      if (obj){
-          result.obj++;
+  for (let item of collection ){
+      if (find(result, item)){
+          result[item] = result[item] + 1 ;
       }else {
-          result.item = 1;
+          result[item] = 1 ;
       }
   }
-   for (let item of result ){
-       console.log(item);
-   }
-
-
   return result ;
-}
+ }
 
 module.exports = grouping_count;
